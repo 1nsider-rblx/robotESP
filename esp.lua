@@ -624,14 +624,12 @@ local function GGIATF_fake_script() -- tlMinimap.LocalScript
 		if activated then
 			script.Parent.Text = "Minimap: off"
 			activated = false
-			mmap = script.Parent.Parent.Parent.Parent.Parent.MinimapGUI
-			mmap.Parent = script.Parent.Parent.Parent.Parent
+			mmap = script.Parent.Parent.Parent.Parent.MinimapGUI
 			mmap.Enabled = false
 		else
 			script.Parent.Text = "Minimap: on"
 			activated = true
 			mmap = script.Parent.Parent.Parent.Parent.MinimapGUI
-			mmap.Parent = script.Parent.Parent.Parent.Parent.Parent
 			mmap.Enabled = true
 		end
 	end)
@@ -708,10 +706,10 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 	
 	function doColorUpdate(icon, v)
 		while true do 
-			wait(1)
+			wait(.5)
 			icon.ImageColor3 = game:GetService("Players"):FindFirstChild(v.Name).TeamColor.Color
 			icon.TextLabel.TextColor3 = game:GetService("Players"):FindFirstChild(v.Name).TeamColor.Color
-			icon.TextLabel.Text = v.Name.." (".. game:GetService("Players"):FindFirstChild(v.Name).Team.Name ..")"
+			icon.TextLabel.Text = v.Name--.." (".. game:GetService("Players"):FindFirstChild(v.Name).Team.Name ..")"
 		end
 	end
 	while wait() do
