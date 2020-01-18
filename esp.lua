@@ -178,7 +178,7 @@ tlStuds.TextWrapped = true
 MinimapGUI.Name = "MinimapGUI"
 MinimapGUI.Parent = esp
 MinimapGUI.Enabled = false
-MinimapGUI.ResetOnSpawn = false
+MinimapGUI.ResetOnSpawn = true
 
 Minimap.Name = "Minimap"
 Minimap.Parent = MinimapGUI
