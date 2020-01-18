@@ -669,7 +669,7 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 		--1 stud = 1 pixel
 		for i,v in pairs(game.Players:GetChildren()) do
 			if not char:FindFirstChild("HumanoidRootPart") then
-				wait(.01)
+				wait(1)
 			end
 			local playerPos = char.HumanoidRootPart.CFrame
 			if v.Name ~= player.Name then
