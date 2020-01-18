@@ -20,17 +20,17 @@ local tool = Instance.new("TextLabel")
 local playerimage = Instance.new("ImageLabel")
 local name2 = Instance.new("TextLabel")
 local MinimapGUI = Instance.new("ScreenGui")
-local PlayerIcon = Instance.new("ImageLabel")
-local TextLabel_2 = Instance.new("TextLabel")
 local Minimap = Instance.new("ImageLabel")
 local Player = Instance.new("ImageLabel")
-local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
 local Players = Instance.new("Folder")
+local PlayerIcon = Instance.new("ImageLabel")
+local TextLabel_3 = Instance.new("TextLabel")
 
 --Properties:
 
 esp.Name = "esp"
-esp.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+esp.Parent = game.Players.LocalPlayer.PlayerGui
 esp.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 esp.ResetOnSpawn = false
 
@@ -244,30 +244,6 @@ MinimapGUI.Name = "MinimapGUI"
 MinimapGUI.Parent = esp
 MinimapGUI.Enabled = false
 
-PlayerIcon.Name = "PlayerIcon"
-PlayerIcon.Parent = MinimapGUI.Controller
-PlayerIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-PlayerIcon.BackgroundTransparency = 1.000
-PlayerIcon.Position = UDim2.new(0.479999989, 0, 0.479999989, 0)
-PlayerIcon.Size = UDim2.new(0.0399999991, 0, 0.0399999991, 0)
-PlayerIcon.ZIndex = 2
-PlayerIcon.Image = "http://www.roblox.com/asset?ID=385733719"
-PlayerIcon.ImageColor3 = Color3.fromRGB(240, 40, 40)
-
-TextLabel_2.Parent = PlayerIcon
-TextLabel_2.AnchorPoint = Vector2.new(0.5, 0)
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0, 0, -5, 0)
-TextLabel_2.Size = UDim2.new(0, 89, 0, 30)
-TextLabel_2.Font = Enum.Font.GothamBold
-TextLabel_2.Text = "ggjgjj"
-TextLabel_2.TextColor3 = Color3.fromRGB(234, 234, 234)
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextStrokeTransparency = 0.000
-TextLabel_2.TextWrapped = true
-TextLabel_2.TextYAlignment = Enum.TextYAlignment.Bottom
-
 Minimap.Name = "Minimap"
 Minimap.Parent = MinimapGUI
 Minimap.Active = true
@@ -290,24 +266,48 @@ Player.ZIndex = 2
 Player.Image = "http://www.roblox.com/asset?ID=385733719"
 Player.ImageColor3 = Color3.fromRGB(42, 255, 42)
 
-TextLabel_3.Parent = Player
-TextLabel_3.AnchorPoint = Vector2.new(0.5, 0)
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.BackgroundTransparency = 1.000
-TextLabel_3.Position = UDim2.new(0, 0, -2.5, 0)
-TextLabel_3.Size = UDim2.new(0, 89, 0, 15)
-TextLabel_3.Font = Enum.Font.GothamBold
-TextLabel_3.Text = "You"
-TextLabel_3.TextColor3 = Color3.fromRGB(234, 234, 234)
-TextLabel_3.TextSize = 14.000
-TextLabel_3.TextStrokeTransparency = 0.000
+TextLabel_2.Parent = Player
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0, 0, -2.5, 0)
+TextLabel_2.Size = UDim2.new(0, 89, 0, 15)
+TextLabel_2.Font = Enum.Font.GothamBold
+TextLabel_2.Text = "You"
+TextLabel_2.TextColor3 = Color3.fromRGB(234, 234, 234)
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextStrokeTransparency = 0.000
 
 Players.Name = "Players"
 Players.Parent = Minimap
 
+PlayerIcon.Name = "PlayerIcon"
+PlayerIcon.Parent = MinimapGUI
+PlayerIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerIcon.BackgroundTransparency = 1.000
+PlayerIcon.Position = UDim2.new(0.479999989, 0, 0.479999989, 0)
+PlayerIcon.Size = UDim2.new(0.0399999991, 0, 0.0399999991, 0)
+PlayerIcon.ZIndex = 2
+PlayerIcon.Image = "http://www.roblox.com/asset?ID=385733719"
+PlayerIcon.ImageColor3 = Color3.fromRGB(240, 40, 40)
+
+TextLabel_3.Parent = PlayerIcon
+TextLabel_3.AnchorPoint = Vector2.new(0.5, 0)
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0, 0, -5, 0)
+TextLabel_3.Size = UDim2.new(0, 89, 0, 30)
+TextLabel_3.Font = Enum.Font.GothamBold
+TextLabel_3.Text = "ggjgjj"
+TextLabel_3.TextColor3 = Color3.fromRGB(234, 234, 234)
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextStrokeTransparency = 0.000
+TextLabel_3.TextWrapped = true
+TextLabel_3.TextYAlignment = Enum.TextYAlignment.Bottom
+
 -- Scripts:
 
-local function UISSW_fake_script() -- espall.LocalScript 
+local function TURW_fake_script() -- espall.LocalScript 
 	local script = Instance.new('LocalScript', espall)
 
 	script.Parent.Activated:Connect(function()
@@ -349,8 +349,8 @@ local function UISSW_fake_script() -- espall.LocalScript
 		end
 	end)
 end
-coroutine.wrap(UISSW_fake_script)()
-local function HKPNCB_fake_script() -- esp_2.LocalScript 
+coroutine.wrap(TURW_fake_script)()
+local function AJANXQV_fake_script() -- esp_2.LocalScript 
 	local script = Instance.new('LocalScript', esp_2)
 
 	script.Parent.Activated:Connect(function()
@@ -391,8 +391,8 @@ local function HKPNCB_fake_script() -- esp_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(HKPNCB_fake_script)()
-local function KBJHSJS_fake_script() -- Frame.main 
+coroutine.wrap(AJANXQV_fake_script)()
+local function HVIAWY_fake_script() -- Frame.main 
 	local script = Instance.new('LocalScript', Frame)
 
 		script.Parent.Draggable = true
@@ -415,16 +415,16 @@ local function KBJHSJS_fake_script() -- Frame.main
 		    --Button2 = "No"; -- Optional, makes another button appear with the given text that, when clicked, fires the Callback if it's given
 		})
 end
-coroutine.wrap(KBJHSJS_fake_script)()
-local function GGXSB_fake_script() -- exit.LocalScript 
+coroutine.wrap(HVIAWY_fake_script)()
+local function LZGQQY_fake_script() -- exit.LocalScript 
 	local script = Instance.new('LocalScript', exit)
 
 	script.Parent.Activated:Connect(function()
 		script.Parent.Parent.Parent:Destroy()
 	end)
 end
-coroutine.wrap(GGXSB_fake_script)()
-local function PHLQCYD_fake_script() -- removeespall.LocalScript 
+coroutine.wrap(LZGQQY_fake_script)()
+local function PFSVB_fake_script() -- removeespall.LocalScript 
 	local script = Instance.new('LocalScript', removeespall)
 
 	script.Parent.Activated:Connect(function()
@@ -439,16 +439,16 @@ local function PHLQCYD_fake_script() -- removeespall.LocalScript
 		end
 	end)
 end
-coroutine.wrap(PHLQCYD_fake_script)()
-local function JIYZHC_fake_script() -- options.LocalScript 
+coroutine.wrap(PFSVB_fake_script)()
+local function TRLDAR_fake_script() -- options.LocalScript 
 	local script = Instance.new('LocalScript', options)
 
 	script.Parent.Activated:Connect(function()
 		script.Parent.Parent.opt.Visible = not script.Parent.Parent.opt.Visible
 	end)
 end
-coroutine.wrap(JIYZHC_fake_script)()
-local function MBQGDFJ_fake_script() -- tlAutoESP.LocalScript 
+coroutine.wrap(TRLDAR_fake_script)()
+local function URKZM_fake_script() -- tlAutoESP.LocalScript 
 	local script = Instance.new('LocalScript', tlAutoESP)
 
 	activated = false
@@ -503,8 +503,8 @@ local function MBQGDFJ_fake_script() -- tlAutoESP.LocalScript
 		end
 	end)
 end
-coroutine.wrap(MBQGDFJ_fake_script)()
-local function USYAGXK_fake_script() -- tlNeverLocal.LocalScript 
+coroutine.wrap(URKZM_fake_script)()
+local function TJJL_fake_script() -- tlNeverLocal.LocalScript 
 	local script = Instance.new('LocalScript', tlNeverLocal)
 
 	activated = false
@@ -526,8 +526,8 @@ local function USYAGXK_fake_script() -- tlNeverLocal.LocalScript
 		end
 	end)
 end
-coroutine.wrap(USYAGXK_fake_script)()
-local function TRAU_fake_script() -- tlMinimap.LocalScript 
+coroutine.wrap(TJJL_fake_script)()
+local function VZKRG_fake_script() -- tlMinimap.LocalScript 
 	local script = Instance.new('LocalScript', tlMinimap)
 
 	activated = false
@@ -543,8 +543,8 @@ local function TRAU_fake_script() -- tlMinimap.LocalScript
 		end
 	end)
 end
-coroutine.wrap(TRAU_fake_script)()
-local function LWCPM_fake_script() -- MinimapGUI.Controller 
+coroutine.wrap(VZKRG_fake_script)()
+local function UHVT_fake_script() -- MinimapGUI.Controller 
 	local script = Instance.new('LocalScript', MinimapGUI)
 
 	local player = game.Players.LocalPlayer
@@ -573,7 +573,7 @@ local function LWCPM_fake_script() -- MinimapGUI.Controller
 						icon.Position = UDim2.new(0.5,(rDist.X/scale)-3,0.5,(rDist.Z/scale)-3)
 					else
 						--Create icon
-						icon = script.PlayerIcon:Clone()
+						icon = script.Parent.PlayerIcon:Clone()
 						--icon.TextLabel.Text = v.Name
 						icon.Parent = minimap.Players
 						icon.Position = UDim2.new(0.5,(rDist.X/scale)-3,0.5,(rDist.Z/scale)-3)
@@ -606,8 +606,8 @@ local function LWCPM_fake_script() -- MinimapGUI.Controller
 		getPlayers()
 	end
 end
-coroutine.wrap(LWCPM_fake_script)()
-local function LNTJZBA_fake_script() -- Player.LocalScript 
+coroutine.wrap(UHVT_fake_script)()
+local function RNBNZ_fake_script() -- Player.LocalScript 
 	local script = Instance.new('LocalScript', Player)
 
 	script.Parent.Parent.Draggable = true
@@ -617,13 +617,13 @@ local function LNTJZBA_fake_script() -- Player.LocalScript
 		script.Parent.TextLabel.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
 	end
 end
-coroutine.wrap(LNTJZBA_fake_script)()
-local function DWEXGOW_fake_script() -- TextLabel_3.LocalScript 
-	local script = Instance.new('LocalScript', TextLabel_3)
+coroutine.wrap(RNBNZ_fake_script)()
+local function AJUKPH_fake_script() -- TextLabel_2.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_2)
 
 	while true do
 		wait(0.01)
 		script.Parent.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
 	end
 end
-coroutine.wrap(DWEXGOW_fake_script)()
+coroutine.wrap(AJUKPH_fake_script)()
