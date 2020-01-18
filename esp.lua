@@ -672,7 +672,7 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 			end
 			local playerPos = char.HumanoidRootPart.CFrame
 			if v.Name ~= player.Name then
-				local c = workspace:WaitForChild(v.Name)
+				local c = workspace:WaitForChild(v.Name, 100)
 				local charPos = c.HumanoidRootPart.CFrame
 				local dist = (playerPos.p-charPos.p).magnitude
 				if dist/scale < (script.Parent.Minimap.AbsoluteSize.X/2)-3 then
@@ -709,9 +709,15 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 	function doColorUpdate(icon, v)
 		while true do 
 			wait(1)
-			icon.ImageColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
-			icon.TextLabel.TextColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
-			icon.TextLabel.Text = v.Name.." (".. game.Players:FindFirstChild(v.Name).Team.Name ..")"
+			if not game.Players:FindFirstChild(v.Name).TeamColor.Color == nil then
+				icon.ImageColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
+				icon.TextLabel.TextColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
+				icon.TextLabel.Text = v.Name.." (".. game.Players:FindFirstChild(v.Name).Team.Name ..")"
+			else
+				icon.ImageColor3 = BrickColor.new("White").Color
+				icon.TextLabel.TextColor3 = BrickColor.new("White").Color
+				icon.TextLabel.Text = v.Name.." (N/A)"
+			end
 		end
 	end
 	while wait() do
