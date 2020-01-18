@@ -178,7 +178,6 @@ tlStuds.TextWrapped = true
 MinimapGUI.Name = "MinimapGUI"
 MinimapGUI.Parent = esp
 MinimapGUI.Enabled = false
-MinimapGUI.ResetOnSpawn = false
 
 Minimap.Name = "Minimap"
 Minimap.Parent = MinimapGUI
@@ -663,9 +662,9 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 	--Minimap
 	local minimap = script.Parent.Minimap
 	local iconSize
-	local scale = 3 --Bigger = more zoomed out, smaller = more zoomed in
+	local scale = 2 --Bigger = more zoomed out, smaller = more zoomed in
 	
-	function getPlayers()
+	local function getPlayers()
 		--1 stud = 1 pixel
 		for i,v in pairs(game.Players:GetChildren()) do
 			if not char:FindFirstChild("HumanoidRootPart") then
@@ -709,7 +708,7 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 	
 	function doColorUpdate(icon, v)
 		while true do 
-			wait(.01)
+			wait(1)
 			icon.ImageColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
 			icon.TextLabel.TextColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
 			icon.TextLabel.Text = v.Name.." (".. game.Players:FindFirstChild(v.Name).Team.Name ..")"
