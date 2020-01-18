@@ -178,7 +178,6 @@ tlStuds.TextWrapped = true
 MinimapGUI.Name = "MinimapGUI"
 MinimapGUI.Parent = esp
 MinimapGUI.Enabled = false
-MinimapGUI.ResetOnSpawn = false
 
 Minimap.Name = "Minimap"
 Minimap.Parent = MinimapGUI
@@ -673,12 +672,12 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 			end
 			local playerPos = char.HumanoidRootPart.CFrame
 			if v.Name ~= player.Name then
-				local c = workspace:WaitForChild(v.Name, 100)
+				local c = workspace:WaitForChild(v.Charcter.Name, 100)
 				local charPos = c.HumanoidRootPart.CFrame
 				local dist = (playerPos.p-charPos.p).magnitude
 				if dist/scale < (script.Parent.Minimap.AbsoluteSize.X/2)-3 then
 					--Show on minimap
-					local icon = minimap.Players:FindFirstChild(v.Name)
+					local icon = minimap.Players:FindFirstChild(v.Charcter.Name)
 					local rDist = playerPos:toObjectSpace(charPos)		
 					if icon then
 						--Move icon
@@ -690,7 +689,7 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 						--icon.TextLabel.Text = v.Name
 						icon.Parent = minimap.Players
 						icon.Position = UDim2.new(0.5,(rDist.X/scale)-3,0.5,(rDist.Z/scale)-3)
-						icon.Name = v.Name
+						icon.Name = v.Charcter.Name
 						coroutine.resume(coroutine.create(function()
 						    doColorUpdate(icon, v)    
 						end)) 
