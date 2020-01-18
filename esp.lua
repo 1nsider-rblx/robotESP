@@ -11,26 +11,37 @@ local opt = Instance.new("Frame")
 local tlAutoESP = Instance.new("TextButton")
 local tlNeverLocal = Instance.new("TextButton")
 local tlMinimap = Instance.new("TextButton")
+local tlStuds = Instance.new("TextButton")
+local MinimapGUI = Instance.new("ScreenGui")
+local Minimap = Instance.new("ImageLabel")
+local Player = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local Players = Instance.new("Folder")
+local PlayerIcon = Instance.new("ImageLabel")
+local TextLabel_2 = Instance.new("TextLabel")
 local espmainTEAM = Instance.new("BillboardGui")
 local ImageLabel_2 = Instance.new("ImageLabel")
-local TextLabel = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
 local name = Instance.new("TextLabel")
 local hp = Instance.new("TextLabel")
 local tool = Instance.new("TextLabel")
 local playerimage = Instance.new("ImageLabel")
 local name2 = Instance.new("TextLabel")
-local MinimapGUI = Instance.new("ScreenGui")
-local Minimap = Instance.new("ImageLabel")
-local Player = Instance.new("ImageLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local Players = Instance.new("Folder")
-local PlayerIcon = Instance.new("ImageLabel")
-local TextLabel_3 = Instance.new("TextLabel")
+local studs = Instance.new("TextLabel")
+local studs_2 = Instance.new("BoolValue")
+local colorType = Instance.new("StringValue")
 
+colorType.Value = "team"
+colorType.Name = "colorType"
+colorType.Parent = Frame
+
+studs_2.Value = false
+studs_2.Name = "studs"
+studs_2.Parent = Frame
 --Properties:
 
 esp.Name = "esp"
-esp.Parent = game.Players.LocalPlayer.PlayerGui
+esp.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 esp.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 esp.ResetOnSpawn = false
 
@@ -119,7 +130,6 @@ opt.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 opt.Position = UDim2.new(1, 0, 0, 0)
 opt.Selectable = true
 opt.Size = UDim2.new(0, 135, 0, 183)
-opt.Visible = false
 
 tlAutoESP.Name = "tlAutoESP"
 tlAutoESP.Parent = opt
@@ -153,6 +163,84 @@ tlMinimap.TextColor3 = Color3.fromRGB(255, 255, 255)
 tlMinimap.TextSize = 14.000
 tlMinimap.TextWrapped = true
 
+tlStuds.Name = "tlStuds"
+tlStuds.Parent = opt
+tlStuds.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+tlStuds.Position = UDim2.new(0.0814814791, 0, 0.666000009, 0)
+tlStuds.Size = UDim2.new(0, 113, 0, 35)
+tlStuds.Font = Enum.Font.SourceSans
+tlStuds.Text = "Show Studs: off"
+tlStuds.TextColor3 = Color3.fromRGB(255, 255, 255)
+tlStuds.TextSize = 14.000
+tlStuds.TextWrapped = true
+
+MinimapGUI.Name = "MinimapGUI"
+MinimapGUI.Parent = esp
+MinimapGUI.Enabled = false
+
+Minimap.Name = "Minimap"
+Minimap.Parent = MinimapGUI
+Minimap.Active = true
+Minimap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Minimap.BackgroundTransparency = 1.000
+Minimap.Position = UDim2.new(0, 10, 0, 195)
+Minimap.Selectable = true
+Minimap.Size = UDim2.new(0, 150, 0, 150)
+Minimap.Image = "http://www.roblox.com/asset?ID=385733719"
+Minimap.ImageColor3 = Color3.fromRGB(21, 21, 21)
+Minimap.ImageTransparency = 0.500
+
+Player.Name = "Player"
+Player.Parent = Minimap
+Player.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Player.BackgroundTransparency = 1.000
+Player.Position = UDim2.new(0.5, 0, 0.5, 0)
+Player.Size = UDim2.new(0.0399999991, 0, 0.0399999991, 0)
+Player.ZIndex = 4
+Player.Image = "http://www.roblox.com/asset?ID=385733719"
+Player.ImageColor3 = Color3.fromRGB(42, 255, 42)
+
+TextLabel.Parent = Player
+TextLabel.AnchorPoint = Vector2.new(0.5, 0)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0, 0, -2.5, 0)
+TextLabel.Size = UDim2.new(0, 89, 0, 15)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.Text = "You"
+TextLabel.ZIndex = 4
+TextLabel.TextColor3 = Color3.fromRGB(234, 234, 234)
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeTransparency = 0.000
+
+Players.Name = "Players"
+Players.Parent = Minimap
+
+PlayerIcon.Name = "PlayerIcon"
+PlayerIcon.Parent = MinimapGUI
+PlayerIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerIcon.BackgroundTransparency = 1.000
+PlayerIcon.Position = UDim2.new(0.479999989, 0, 0.479999989, 0)
+PlayerIcon.Size = UDim2.new(0.0399999991, 0, 0.0399999991, 0)
+PlayerIcon.Visible = false
+PlayerIcon.ZIndex = 2
+PlayerIcon.Image = "http://www.roblox.com/asset?ID=385733719"
+PlayerIcon.ImageColor3 = Color3.fromRGB(240, 40, 40)
+
+TextLabel_2.Parent = PlayerIcon
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0, 0, -5, 0)
+TextLabel_2.Size = UDim2.new(0, 89, 0, 30)
+TextLabel_2.Font = Enum.Font.GothamBold
+TextLabel_2.Text = "ggjgjj"
+TextLabel_2.TextColor3 = Color3.fromRGB(234, 234, 234)
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextStrokeTransparency = 0.000
+TextLabel_2.TextWrapped = true
+TextLabel_2.TextYAlignment = Enum.TextYAlignment.Bottom
+
 espmainTEAM.Name = "espmainTEAM"
 espmainTEAM.Parent = esp
 espmainTEAM.Enabled = false
@@ -168,16 +256,16 @@ ImageLabel_2.Position = UDim2.new(0.371376812, 0, 0.335144937, 0)
 ImageLabel_2.Size = UDim2.new(0.259057969, 0, 0.291666657, 0)
 ImageLabel_2.Image = " "
 
-TextLabel.Parent = ImageLabel_2
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Size = UDim2.new(0.5, 0, 0.300000012, 0)
-TextLabel.Font = Enum.Font.SourceSansLight
-TextLabel.Text = "Latest Scan:"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
+TextLabel_3.Parent = ImageLabel_2
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Size = UDim2.new(0.5, 0, 0.300000012, 0)
+TextLabel_3.Font = Enum.Font.SourceSansLight
+TextLabel_3.Text = "Latest Scan:"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
 
 name.Name = "name"
 name.Parent = ImageLabel_2
@@ -209,7 +297,7 @@ tool.Name = "tool"
 tool.Parent = ImageLabel_2
 tool.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tool.BackgroundTransparency = 1.000
-tool.Position = UDim2.new(0.0458015278, 0, 0.484745771, 0)
+tool.Position = UDim2.new(0.0458015278, 0, 0.400000006, 0)
 tool.Size = UDim2.new(0.549618304, 0, 0.230508476, 0)
 tool.Font = Enum.Font.SourceSansBold
 tool.Text = "Equip: ?"
@@ -223,7 +311,7 @@ playerimage.Parent = ImageLabel_2
 playerimage.Active = true
 playerimage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 playerimage.BackgroundTransparency = 1.000
-playerimage.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+playerimage.Position = UDim2.new(0.550000012, 0, 0.449999988, 0)
 playerimage.Size = UDim2.new(0.400000006, 0, 0.400000006, 0)
 playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=ROBLOX"
 
@@ -240,74 +328,22 @@ name2.TextColor3 = Color3.fromRGB(255, 255, 255)
 name2.TextSize = 14.000
 name2.TextStrokeTransparency = 0.000
 
-MinimapGUI.Name = "MinimapGUI"
-MinimapGUI.Parent = esp
-MinimapGUI.Enabled = false
-
-Minimap.Name = "Minimap"
-Minimap.Parent = MinimapGUI
-Minimap.Active = true
-Minimap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Minimap.BackgroundTransparency = 1.000
-Minimap.Position = UDim2.new(0, 10, 0, 195)
-Minimap.Selectable = true
-Minimap.Size = UDim2.new(0, 150, 0, 150)
-Minimap.Image = "http://www.roblox.com/asset?ID=385733719"
-Minimap.ImageColor3 = Color3.fromRGB(21, 21, 21)
-Minimap.ImageTransparency = 0.500
-
-Player.Name = "Player"
-Player.Parent = Minimap
-Player.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Player.BackgroundTransparency = 1.000
-Player.Position = UDim2.new(0.5, 0, 0.5, 0)
-Player.Size = UDim2.new(0.0399999991, 0, 0.0399999991, 0)
-Player.ZIndex = 2
-Player.Image = "http://www.roblox.com/asset?ID=385733719"
-Player.ImageColor3 = Color3.fromRGB(42, 255, 42)
-
-TextLabel_2.Parent = Player
-TextLabel_2.AnchorPoint = Vector2.new(0.5, 0)
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0, 0, -2.5, 0)
-TextLabel_2.Size = UDim2.new(0, 89, 0, 15)
-TextLabel_2.Font = Enum.Font.GothamBold
-TextLabel_2.Text = "You"
-TextLabel_2.TextColor3 = Color3.fromRGB(234, 234, 234)
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextStrokeTransparency = 0.000
-
-Players.Name = "Players"
-Players.Parent = Minimap
-
-PlayerIcon.Name = "PlayerIcon"
-PlayerIcon.Parent = MinimapGUI
-PlayerIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-PlayerIcon.BackgroundTransparency = 1.000
-PlayerIcon.Position = UDim2.new(0.479999989, 0, 0.479999989, 0)
-PlayerIcon.Size = UDim2.new(0.0399999991, 0, 0.0399999991, 0)
-PlayerIcon.ZIndex = 2
-PlayerIcon.Image = "http://www.roblox.com/asset?ID=385733719"
-PlayerIcon.ImageColor3 = Color3.fromRGB(240, 40, 40)
-
-TextLabel_3.Parent = PlayerIcon
-TextLabel_3.AnchorPoint = Vector2.new(0.5, 0)
-TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_3.BackgroundTransparency = 1.000
-TextLabel_3.Position = UDim2.new(0, 0, -5, 0)
-TextLabel_3.Size = UDim2.new(0, 89, 0, 30)
-TextLabel_3.Font = Enum.Font.GothamBold
-TextLabel_3.Text = "ggjgjj"
-TextLabel_3.TextColor3 = Color3.fromRGB(234, 234, 234)
-TextLabel_3.TextSize = 14.000
-TextLabel_3.TextStrokeTransparency = 0.000
-TextLabel_3.TextWrapped = true
-TextLabel_3.TextYAlignment = Enum.TextYAlignment.Bottom
+studs.Name = "studs"
+studs.Parent = ImageLabel_2
+studs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+studs.BackgroundTransparency = 1.000
+studs.Position = UDim2.new(0.0458015278, 0, 0.649999976, 0)
+studs.Size = UDim2.new(0.549618304, 0, 0.230508476, 0)
+studs.Font = Enum.Font.SourceSansBold
+studs.Text = "Studs Away: 0"
+studs.TextColor3 = Color3.fromRGB(255, 255, 255)
+studs.TextScaled = true
+studs.TextSize = 14.000
+studs.TextWrapped = true
 
 -- Scripts:
 
-local function TURW_fake_script() -- espall.LocalScript 
+local function ITXHDG_fake_script() -- espall.LocalScript 
 	local script = Instance.new('LocalScript', espall)
 
 	script.Parent.Activated:Connect(function()
@@ -321,7 +357,7 @@ local function TURW_fake_script() -- espall.LocalScript
 				local billboard = script.Parent.Parent.Parent.espmainTEAM:Clone()
 				billboard.Parent = child:FindFirstChild("HumanoidRootPart")
 				billboard.ImageLabel.name.Text = child.Name
-				billboard.ImageLabel.name2.Text = child.Name
+				
 				billboard.Enabled = true
 	
 				billboard.ImageLabel.hp.Text = "HP: " .. math.floor(child.Humanoid.Health) .. "/".. math.floor(child.Humanoid.MaxHealth)
@@ -339,18 +375,35 @@ local function TURW_fake_script() -- espall.LocalScript
 				billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 				
 				if(game.Players:FindFirstChild(child.Name))then
-					billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
-					billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+					if(script.Parent.Parent.colorType.Value == "team")then
+						billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+					--elseif(script.Parent.Parent.colorType.Value == "torso")then
+						
+					end
 				else
 					billboard.ImageLabel.BackgroundColor3 = BrickColor.new("Fog").Color
 					billboard.ImageLabel.name2.TextColor3 = BrickColor.new("Fog").Color
 				end
+				coroutine.resume(coroutine.create(function()
+					while true do
+						if(billboard:FindFirstChild("ImageLabel"))then
+							wait(0.01)
+							if(script.Parent.Parent.studs.Value == true)then
+								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
+							else
+								billboard.ImageLabel.name2.Text = child.Name
+							end
+							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
+						end
+					end
+				end))
 			end
 		end
 	end)
 end
-coroutine.wrap(TURW_fake_script)()
-local function AJANXQV_fake_script() -- esp_2.LocalScript 
+coroutine.wrap(ITXHDG_fake_script)()
+local function LRNUT_fake_script() -- esp_2.LocalScript 
 	local script = Instance.new('LocalScript', esp_2)
 
 	script.Parent.Activated:Connect(function()
@@ -363,7 +416,7 @@ local function AJANXQV_fake_script() -- esp_2.LocalScript
 				local billboard = script.Parent.Parent.Parent.espmainTEAM:Clone()
 				billboard.Parent = child:FindFirstChild("HumanoidRootPart")
 				billboard.ImageLabel.name.Text = child.Name
-				billboard.ImageLabel.name2.Text = child.Name
+				
 				billboard.Enabled = true
 	
 				billboard.ImageLabel.hp.Text = "HP: " .. math.floor(child.Humanoid.Health) .. "/".. math.floor(child.Humanoid.MaxHealth)
@@ -381,18 +434,35 @@ local function AJANXQV_fake_script() -- esp_2.LocalScript
 				billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 				
 				if(game.Players:FindFirstChild(child.Name))then
-					billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
-					billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+					if(script.Parent.Parent.colorType.Value == "team")then
+						billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+					--elseif(script.Parent.Parent.colorType.Value == "torso")then
+						
+					end
 				else
 					billboard.ImageLabel.BackgroundColor3 = BrickColor.new("Fog").Color
 					billboard.ImageLabel.name2.TextColor3 = BrickColor.new("Fog").Color
 				end
+				coroutine.resume(coroutine.create(function()
+					while true do
+						if(billboard:FindFirstChild("ImageLabel"))then
+							wait(0.01)
+							if(script.Parent.Parent.studs.Value == true)then
+								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
+							else
+								billboard.ImageLabel.name2.Text = child.Name
+							end
+							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
+						end
+					end
+				end))
 			end
 		end
 	end)
 end
-coroutine.wrap(AJANXQV_fake_script)()
-local function HVIAWY_fake_script() -- Frame.main 
+coroutine.wrap(LRNUT_fake_script)()
+local function PKQQGT_fake_script() -- Frame.main 
 	local script = Instance.new('LocalScript', Frame)
 
 		script.Parent.Draggable = true
@@ -415,16 +485,16 @@ local function HVIAWY_fake_script() -- Frame.main
 		    --Button2 = "No"; -- Optional, makes another button appear with the given text that, when clicked, fires the Callback if it's given
 		})
 end
-coroutine.wrap(HVIAWY_fake_script)()
-local function LZGQQY_fake_script() -- exit.LocalScript 
+coroutine.wrap(PKQQGT_fake_script)()
+local function NGHMV_fake_script() -- exit.LocalScript 
 	local script = Instance.new('LocalScript', exit)
 
 	script.Parent.Activated:Connect(function()
 		script.Parent.Parent.Parent:Destroy()
 	end)
 end
-coroutine.wrap(LZGQQY_fake_script)()
-local function PFSVB_fake_script() -- removeespall.LocalScript 
+coroutine.wrap(NGHMV_fake_script)()
+local function MDXNK_fake_script() -- removeespall.LocalScript 
 	local script = Instance.new('LocalScript', removeespall)
 
 	script.Parent.Activated:Connect(function()
@@ -439,16 +509,16 @@ local function PFSVB_fake_script() -- removeespall.LocalScript
 		end
 	end)
 end
-coroutine.wrap(PFSVB_fake_script)()
-local function TRLDAR_fake_script() -- options.LocalScript 
+coroutine.wrap(MDXNK_fake_script)()
+local function QOIG_fake_script() -- options.LocalScript 
 	local script = Instance.new('LocalScript', options)
 
 	script.Parent.Activated:Connect(function()
 		script.Parent.Parent.opt.Visible = not script.Parent.Parent.opt.Visible
 	end)
 end
-coroutine.wrap(TRLDAR_fake_script)()
-local function URKZM_fake_script() -- tlAutoESP.LocalScript 
+coroutine.wrap(QOIG_fake_script)()
+local function UXOOE_fake_script() -- tlAutoESP.LocalScript 
 	local script = Instance.new('LocalScript', tlAutoESP)
 
 	activated = false
@@ -503,8 +573,8 @@ local function URKZM_fake_script() -- tlAutoESP.LocalScript
 		end
 	end)
 end
-coroutine.wrap(URKZM_fake_script)()
-local function TJJL_fake_script() -- tlNeverLocal.LocalScript 
+coroutine.wrap(UXOOE_fake_script)()
+local function PGMNW_fake_script() -- tlNeverLocal.LocalScript 
 	local script = Instance.new('LocalScript', tlNeverLocal)
 
 	activated = false
@@ -526,8 +596,8 @@ local function TJJL_fake_script() -- tlNeverLocal.LocalScript
 		end
 	end)
 end
-coroutine.wrap(TJJL_fake_script)()
-local function VZKRG_fake_script() -- tlMinimap.LocalScript 
+coroutine.wrap(PGMNW_fake_script)()
+local function TODZQ_fake_script() -- tlMinimap.LocalScript 
 	local script = Instance.new('LocalScript', tlMinimap)
 
 	activated = false
@@ -543,8 +613,23 @@ local function VZKRG_fake_script() -- tlMinimap.LocalScript
 		end
 	end)
 end
-coroutine.wrap(VZKRG_fake_script)()
-local function UHVT_fake_script() -- MinimapGUI.Controller 
+coroutine.wrap(TODZQ_fake_script)()
+local function QCONN_fake_script() -- tlStuds.LocalScript 
+	local script = Instance.new('LocalScript', tlStuds)
+
+	local activated = studs_2
+	script.Parent.Activated:Connect(function()
+		if activated.Value then
+			script.Parent.Text = "Show Studs: off"
+			activated.Value = false
+		else
+			script.Parent.Text = "Show Studs: on"
+			activated.Value = true
+		end
+	end)
+end
+coroutine.wrap(QCONN_fake_script)()
+local function YHBL_fake_script() -- MinimapGUI.Controller 
 	local script = Instance.new('LocalScript', MinimapGUI)
 
 	local player = game.Players.LocalPlayer
@@ -556,7 +641,7 @@ local function UHVT_fake_script() -- MinimapGUI.Controller
 	local iconSize
 	local scale = 3 --Bigger = more zoomed out, smaller = more zoomed in
 	
-	function getPlayers()
+	local function getPlayers()
 		--1 stud = 1 pixel
 		for i,v in pairs(game.Players:GetChildren()) do
 			local playerPos = char.HumanoidRootPart.CFrame
@@ -574,6 +659,7 @@ local function UHVT_fake_script() -- MinimapGUI.Controller
 					else
 						--Create icon
 						icon = script.Parent.PlayerIcon:Clone()
+						icon.Visible = true
 						--icon.TextLabel.Text = v.Name
 						icon.Parent = minimap.Players
 						icon.Position = UDim2.new(0.5,(rDist.X/scale)-3,0.5,(rDist.Z/scale)-3)
@@ -606,8 +692,8 @@ local function UHVT_fake_script() -- MinimapGUI.Controller
 		getPlayers()
 	end
 end
-coroutine.wrap(UHVT_fake_script)()
-local function RNBNZ_fake_script() -- Player.LocalScript 
+coroutine.wrap(YHBL_fake_script)()
+local function GKDND_fake_script() -- Player.LocalScript 
 	local script = Instance.new('LocalScript', Player)
 
 	script.Parent.Parent.Draggable = true
@@ -617,13 +703,13 @@ local function RNBNZ_fake_script() -- Player.LocalScript
 		script.Parent.TextLabel.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
 	end
 end
-coroutine.wrap(RNBNZ_fake_script)()
-local function AJUKPH_fake_script() -- TextLabel_2.LocalScript 
-	local script = Instance.new('LocalScript', TextLabel_2)
+coroutine.wrap(GKDND_fake_script)()
+local function ICQI_fake_script() -- TextLabel.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel)
 
 	while true do
 		wait(0.01)
 		script.Parent.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
 	end
 end
-coroutine.wrap(AJUKPH_fake_script)()
+coroutine.wrap(ICQI_fake_script)()
