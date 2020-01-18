@@ -41,7 +41,8 @@ studs_2.Parent = Frame
 --Properties:
 
 esp.Name = "esp"
-esp.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+esp.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+esp.Enabled = true
 esp.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 esp.ResetOnSpawn = false
 
@@ -206,9 +207,9 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.Position = UDim2.new(0, 0, -2.5, 0)
 TextLabel.Size = UDim2.new(0, 89, 0, 15)
+TextLabel.ZIndex = 4
 TextLabel.Font = Enum.Font.GothamBold
 TextLabel.Text = "You"
-TextLabel.ZIndex = 4
 TextLabel.TextColor3 = Color3.fromRGB(234, 234, 234)
 TextLabel.TextSize = 14.000
 TextLabel.TextStrokeTransparency = 0.000
@@ -343,7 +344,7 @@ studs.TextWrapped = true
 
 -- Scripts:
 
-local function ITXHDG_fake_script() -- espall.LocalScript 
+local function ZMRDL_fake_script() -- espall.LocalScript 
 	local script = Instance.new('LocalScript', espall)
 
 	script.Parent.Activated:Connect(function()
@@ -402,8 +403,8 @@ local function ITXHDG_fake_script() -- espall.LocalScript
 		end
 	end)
 end
-coroutine.wrap(ITXHDG_fake_script)()
-local function LRNUT_fake_script() -- esp_2.LocalScript 
+coroutine.wrap(ZMRDL_fake_script)()
+local function TYGSMA_fake_script() -- esp_2.LocalScript 
 	local script = Instance.new('LocalScript', esp_2)
 
 	script.Parent.Activated:Connect(function()
@@ -461,8 +462,8 @@ local function LRNUT_fake_script() -- esp_2.LocalScript
 		end
 	end)
 end
-coroutine.wrap(LRNUT_fake_script)()
-local function PKQQGT_fake_script() -- Frame.main 
+coroutine.wrap(TYGSMA_fake_script)()
+local function BVSO_fake_script() -- Frame.main 
 	local script = Instance.new('LocalScript', Frame)
 
 		script.Parent.Draggable = true
@@ -485,16 +486,16 @@ local function PKQQGT_fake_script() -- Frame.main
 		    --Button2 = "No"; -- Optional, makes another button appear with the given text that, when clicked, fires the Callback if it's given
 		})
 end
-coroutine.wrap(PKQQGT_fake_script)()
-local function NGHMV_fake_script() -- exit.LocalScript 
+coroutine.wrap(BVSO_fake_script)()
+local function SYYYFTJ_fake_script() -- exit.LocalScript 
 	local script = Instance.new('LocalScript', exit)
 
 	script.Parent.Activated:Connect(function()
 		script.Parent.Parent.Parent:Destroy()
 	end)
 end
-coroutine.wrap(NGHMV_fake_script)()
-local function MDXNK_fake_script() -- removeespall.LocalScript 
+coroutine.wrap(SYYYFTJ_fake_script)()
+local function RPLIS_fake_script() -- removeespall.LocalScript 
 	local script = Instance.new('LocalScript', removeespall)
 
 	script.Parent.Activated:Connect(function()
@@ -509,19 +510,19 @@ local function MDXNK_fake_script() -- removeespall.LocalScript
 		end
 	end)
 end
-coroutine.wrap(MDXNK_fake_script)()
-local function QOIG_fake_script() -- options.LocalScript 
+coroutine.wrap(RPLIS_fake_script)()
+local function YTYJ_fake_script() -- options.LocalScript 
 	local script = Instance.new('LocalScript', options)
 
 	script.Parent.Activated:Connect(function()
 		script.Parent.Parent.opt.Visible = not script.Parent.Parent.opt.Visible
 	end)
 end
-coroutine.wrap(QOIG_fake_script)()
-local function UXOOE_fake_script() -- tlAutoESP.LocalScript 
+coroutine.wrap(YTYJ_fake_script)()
+local function DPYAJJ_fake_script() -- tlAutoESP.LocalScript 
 	local script = Instance.new('LocalScript', tlAutoESP)
 
-	activated = false
+	local activated = false
 	script.Parent.Activated:Connect(function()
 		if activated then
 			script.Parent.Text = "Auto-refresh ESP: off"
@@ -542,7 +543,7 @@ local function UXOOE_fake_script() -- tlAutoESP.LocalScript
 				local billboard = script.Parent.Parent.Parent.Parent.espmainTEAM:Clone()
 				billboard.Parent = child:FindFirstChild("HumanoidRootPart")
 				billboard.ImageLabel.name.Text = child.Name
-				billboard.ImageLabel.name2.Text = child.Name
+				
 				billboard.Enabled = true
 	
 				billboard.ImageLabel.hp.Text = "HP: " .. math.floor(child.Humanoid.Health) .. "/".. math.floor(child.Humanoid.MaxHealth)
@@ -560,12 +561,29 @@ local function UXOOE_fake_script() -- tlAutoESP.LocalScript
 				billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 				
 				if(game.Players:FindFirstChild(child.Name))then
-					billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
-					billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+					if(script.Parent.Parent.Parent.colorType.Value == "team")then
+						billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+					--elseif(script.Parent.Parent.colorType.Value == "torso")then
+						
+					end
 				else
 					billboard.ImageLabel.BackgroundColor3 = BrickColor.new("Fog").Color
 					billboard.ImageLabel.name2.TextColor3 = BrickColor.new("Fog").Color
 				end
+				coroutine.resume(coroutine.create(function()
+					while true do
+						if(billboard:FindFirstChild("ImageLabel"))then
+							wait(0.01)
+							if(script.Parent.Parent.Parent.studs.Value == true)then
+								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
+							else
+								billboard.ImageLabel.name2.Text = child.Name
+							end
+							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
+						end
+					end
+				end))
 			end
 		end
 		end
@@ -573,11 +591,11 @@ local function UXOOE_fake_script() -- tlAutoESP.LocalScript
 		end
 	end)
 end
-coroutine.wrap(UXOOE_fake_script)()
-local function PGMNW_fake_script() -- tlNeverLocal.LocalScript 
+coroutine.wrap(DPYAJJ_fake_script)()
+local function FXWDY_fake_script() -- tlNeverLocal.LocalScript 
 	local script = Instance.new('LocalScript', tlNeverLocal)
 
-	activated = false
+	local activated = false
 	script.Parent.Activated:Connect(function()
 		if activated then
 			script.Parent.Text = "Never do ESP on LocalPlayer: off"
@@ -596,28 +614,33 @@ local function PGMNW_fake_script() -- tlNeverLocal.LocalScript
 		end
 	end)
 end
-coroutine.wrap(PGMNW_fake_script)()
-local function TODZQ_fake_script() -- tlMinimap.LocalScript 
+coroutine.wrap(FXWDY_fake_script)()
+local function GGIATF_fake_script() -- tlMinimap.LocalScript 
 	local script = Instance.new('LocalScript', tlMinimap)
 
-	activated = false
+	local activated = false
 	script.Parent.Activated:Connect(function()
+		local mmap
 		if activated then
 			script.Parent.Text = "Minimap: off"
 			activated = false
-			script.Parent.Parent.Parent.Parent.MinimapGUI.Enabled = false
+			mmap = script.Parent.Parent.Parent.Parent.Parent.MinimapGUI
+			mmap.Parent = script.Parent.Parent.Parent.Parent
+			mmap.Enabled = false
 		else
 			script.Parent.Text = "Minimap: on"
 			activated = true
-			script.Parent.Parent.Parent.Parent.MinimapGUI.Enabled = true
+			mmap = script.Parent.Parent.Parent.Parent.MinimapGUI
+			mmap.Parent = script.Parent.Parent.Parent.Parent.Parent
+			mmap.Enabled = true
 		end
 	end)
 end
-coroutine.wrap(TODZQ_fake_script)()
-local function QCONN_fake_script() -- tlStuds.LocalScript 
+coroutine.wrap(GGIATF_fake_script)()
+local function NXTLK_fake_script() -- tlStuds.LocalScript 
 	local script = Instance.new('LocalScript', tlStuds)
 
-	local activated = studs_2
+	local activated = script.Parent.Parent.Parent.studs
 	script.Parent.Activated:Connect(function()
 		if activated.Value then
 			script.Parent.Text = "Show Studs: off"
@@ -628,8 +651,8 @@ local function QCONN_fake_script() -- tlStuds.LocalScript
 		end
 	end)
 end
-coroutine.wrap(QCONN_fake_script)()
-local function YHBL_fake_script() -- MinimapGUI.Controller 
+coroutine.wrap(NXTLK_fake_script)()
+local function XPCFRT_fake_script() -- MinimapGUI.Controller 
 	local script = Instance.new('LocalScript', MinimapGUI)
 
 	local player = game.Players.LocalPlayer
@@ -641,9 +664,12 @@ local function YHBL_fake_script() -- MinimapGUI.Controller
 	local iconSize
 	local scale = 3 --Bigger = more zoomed out, smaller = more zoomed in
 	
-	local function getPlayers()
+	function getPlayers()
 		--1 stud = 1 pixel
 		for i,v in pairs(game.Players:GetChildren()) do
+			if not char:FindFirstChild("HumanoidRootPart") then
+				wait(.01)
+			end
 			local playerPos = char.HumanoidRootPart.CFrame
 			if v.Name ~= player.Name then
 				local c = workspace:WaitForChild(v.Name)
@@ -692,8 +718,8 @@ local function YHBL_fake_script() -- MinimapGUI.Controller
 		getPlayers()
 	end
 end
-coroutine.wrap(YHBL_fake_script)()
-local function GKDND_fake_script() -- Player.LocalScript 
+coroutine.wrap(XPCFRT_fake_script)()
+local function HIQVIOB_fake_script() -- Player.LocalScript 
 	local script = Instance.new('LocalScript', Player)
 
 	script.Parent.Parent.Draggable = true
@@ -703,8 +729,8 @@ local function GKDND_fake_script() -- Player.LocalScript
 		script.Parent.TextLabel.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
 	end
 end
-coroutine.wrap(GKDND_fake_script)()
-local function ICQI_fake_script() -- TextLabel.LocalScript 
+coroutine.wrap(HIQVIOB_fake_script)()
+local function GLPJBEU_fake_script() -- TextLabel.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel)
 
 	while true do
@@ -712,4 +738,4 @@ local function ICQI_fake_script() -- TextLabel.LocalScript
 		script.Parent.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
 	end
 end
-coroutine.wrap(ICQI_fake_script)()
+coroutine.wrap(GLPJBEU_fake_script)()
