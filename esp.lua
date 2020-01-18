@@ -375,10 +375,10 @@ local function ZMRDL_fake_script() -- espall.LocalScript
 				wait(.1)
 				billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 				
-				if(game.Players:FindFirstChild(child.Name))then
+				if(game:GetService("Players"):FindFirstChild(child.Name))then
 					if(script.Parent.Parent.colorType.Value == "team")then
-						billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
-						billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.BackgroundColor3 = game:GetService("Players"):FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.name2.TextColor3 = game:GetService("Players"):FindFirstChild(child.Name).TeamColor.Color
 					--elseif(script.Parent.Parent.colorType.Value == "torso")then
 						
 					end
@@ -391,11 +391,11 @@ local function ZMRDL_fake_script() -- espall.LocalScript
 						if(billboard:FindFirstChild("ImageLabel"))then
 							wait(0.01)
 							if(script.Parent.Parent.studs.Value == true)then
-								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
+								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game:GetService("Players").LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
 							else
 								billboard.ImageLabel.name2.Text = child.Name
 							end
-							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
+							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game:GetService("Players").LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
 						end
 					end
 				end))
@@ -434,10 +434,10 @@ local function TYGSMA_fake_script() -- esp_2.LocalScript
 				wait(.1)
 				billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 				
-				if(game.Players:FindFirstChild(child.Name))then
+				if(game:GetService("Players"):FindFirstChild(child.Name))then
 					if(script.Parent.Parent.colorType.Value == "team")then
-						billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
-						billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.BackgroundColor3 = game:GetService("Players"):FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.name2.TextColor3 = game:GetService("Players"):FindFirstChild(child.Name).TeamColor.Color
 					--elseif(script.Parent.Parent.colorType.Value == "torso")then
 						
 					end
@@ -450,11 +450,11 @@ local function TYGSMA_fake_script() -- esp_2.LocalScript
 						if(billboard:FindFirstChild("ImageLabel"))then
 							wait(0.01)
 							if(script.Parent.Parent.studs.Value == true)then
-								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
+								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game:GetService("Players").LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
 							else
 								billboard.ImageLabel.name2.Text = child.Name
 							end
-							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
+							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game:GetService("Players").LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
 						end
 					end
 				end))
@@ -467,7 +467,7 @@ local function BVSO_fake_script() -- Frame.main
 	local script = Instance.new('LocalScript', Frame)
 
 		script.Parent.Draggable = true
-		local player = game.Players.LocalPlayer
+		local player = game:GetService("Players").LocalPlayer
 		local mouse = player:GetMouse()
 		local enabledBody = true
 		
@@ -560,10 +560,10 @@ local function DPYAJJ_fake_script() -- tlAutoESP.LocalScript
 				wait(.1)
 				billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 				
-				if(game.Players:FindFirstChild(child.Name))then
+				if(game:GetService("Players"):FindFirstChild(child.Name))then
 					if(script.Parent.Parent.Parent.colorType.Value == "team")then
-						billboard.ImageLabel.BackgroundColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
-						billboard.ImageLabel.name2.TextColor3 = game.Players:FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.BackgroundColor3 = game:GetService("Players"):FindFirstChild(child.Name).TeamColor.Color
+						billboard.ImageLabel.name2.TextColor3 = game:GetService("Players"):FindFirstChild(child.Name).TeamColor.Color
 					--elseif(script.Parent.Parent.colorType.Value == "torso")then
 						
 					end
@@ -576,11 +576,11 @@ local function DPYAJJ_fake_script() -- tlAutoESP.LocalScript
 						if(billboard:FindFirstChild("ImageLabel"))then
 							wait(0.01)
 							if(script.Parent.Parent.Parent.studs.Value == true)then
-								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
+								billboard.ImageLabel.name2.Text = child.Name.." (studs: "..math.floor(game:GetService("Players").LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))..")"
 							else
 								billboard.ImageLabel.name2.Text = child.Name
 							end
-							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game.Players.LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
+							billboard.ImageLabel.studs.Text = "Studs: "..math.floor(game:GetService("Players").LocalPlayer:DistanceFromCharacter(workspace:FindFirstChild(child.Name).Head.Position))
 						end
 					end
 				end))
@@ -606,8 +606,8 @@ local function FXWDY_fake_script() -- tlNeverLocal.LocalScript
 			while true do
 				wait(.5)
 				if activated then
-					if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("espmainTEAM") then
-						game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("espmainTEAM"):Destroy()
+					if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("espmainTEAM") then
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("espmainTEAM"):Destroy()
 					end
 				end
 			end
@@ -655,7 +655,7 @@ coroutine.wrap(NXTLK_fake_script)()
 local function XPCFRT_fake_script() -- MinimapGUI.Controller 
 	local script = Instance.new('LocalScript', MinimapGUI)
 
-	local player = game.Players.LocalPlayer
+	local player = game:GetService("Players").LocalPlayer
 	local char = workspace:WaitForChild(player.Name)
 	local cam = workspace.CurrentCamera
 	
@@ -666,7 +666,7 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 	
 	local function getPlayers()
 		--1 stud = 1 pixel
-		for i,v in pairs(game.Players:GetChildren()) do
+		for i,v in pairs(game:GetService("Players"):GetChildren()) do
 			if not char:FindFirstChild("HumanoidRootPart") then
 				wait(1)
 			end
@@ -709,15 +709,9 @@ local function XPCFRT_fake_script() -- MinimapGUI.Controller
 	function doColorUpdate(icon, v)
 		while true do 
 			wait(1)
-			if not game.Players:FindFirstChild(v.Name).TeamColor.Color == nil then
-				icon.ImageColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
-				icon.TextLabel.TextColor3 = game.Players:FindFirstChild(v.Name).TeamColor.Color
-				icon.TextLabel.Text = v.Name.." (".. game.Players:FindFirstChild(v.Name).Team.Name ..")"
-			else
-				icon.ImageColor3 = BrickColor.new("White").Color
-				icon.TextLabel.TextColor3 = BrickColor.new("White").Color
-				icon.TextLabel.Text = v.Name.." (N/A)"
-			end
+			icon.ImageColor3 = game:GetService("Players"):FindFirstChild(v.Name).TeamColor.Color
+			icon.TextLabel.TextColor3 = game:GetService("Players"):FindFirstChild(v.Name).TeamColor.Color
+			icon.TextLabel.Text = v.Name.." (".. game:GetService("Players"):FindFirstChild(v.Name).Team.Name ..")"
 		end
 	end
 	while wait() do
@@ -731,8 +725,8 @@ local function HIQVIOB_fake_script() -- Player.LocalScript
 	script.Parent.Parent.Draggable = true
 	while true do
 		wait(0.01)
-		script.Parent.ImageColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
-		script.Parent.TextLabel.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
+		script.Parent.ImageColor3 = game:GetService("Players"):FindFirstChild(game:GetService("Players").LocalPlayer.Name).TeamColor.Color
+		script.Parent.TextLabel.TextColor3 = game:GetService("Players"):FindFirstChild(game:GetService("Players").LocalPlayer.Name).TeamColor.Color
 	end
 end
 coroutine.wrap(HIQVIOB_fake_script)()
@@ -741,7 +735,7 @@ local function GLPJBEU_fake_script() -- TextLabel.LocalScript
 
 	while true do
 		wait(0.01)
-		script.Parent.TextColor3 = game.Players:FindFirstChild(game.Players.LocalPlayer.Name).TeamColor.Color
+		script.Parent.TextColor3 = game:GetService("Players"):FindFirstChild(game:GetService("Players").LocalPlayer.Name).TeamColor.Color
 	end
 end
 coroutine.wrap(GLPJBEU_fake_script)()
