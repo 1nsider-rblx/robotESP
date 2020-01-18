@@ -294,7 +294,7 @@ local function RAYWBSL_fake_script() -- espall.LocalScript
 			local playerone = child.Name
 			local content = game:GetService('ContentProvider')
 			content:Preload("http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..playerone)
-			wait(1)
+			wait(0.25)
 			billboard.ImageLabel.playerimage.Image = "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..playerone
 			
 			coroutine.resume(coroutine.create(function()
