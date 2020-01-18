@@ -245,7 +245,7 @@ MinimapGUI.Parent = esp
 MinimapGUI.Enabled = false
 
 PlayerIcon.Name = "PlayerIcon"
-PlayerIcon.Parent = game.StarterGui.esp.MinimapGUI.Controller
+PlayerIcon.Parent = MinimapGUI.Controller
 PlayerIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 PlayerIcon.BackgroundTransparency = 1.000
 PlayerIcon.Position = UDim2.new(0.479999989, 0, 0.479999989, 0)
